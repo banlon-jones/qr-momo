@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import PublicNavbar from '../../components/navbar/Public-Navbar';
 import SigninForm from '../../components/signin/SigninForm';
 
@@ -16,7 +17,7 @@ const Login = () => (
       <div className="text-center">
         <p>
           Have no account yet?
-          <a href="!#"> register </a>
+          <NavLink to="/register"> register </NavLink>
         </p>
       </div>
       <div className="container mt-4">

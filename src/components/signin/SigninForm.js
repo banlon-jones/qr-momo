@@ -15,7 +15,7 @@ const SigninForm = () => (
         <input type="password" className="form-control" id="email" required />
       </div>
       <div className="mt-4">
-        <BtnPrimary value="Login" />
+        <BtnPrimary value="Register" />
       </div>
     </form>
   </div>
