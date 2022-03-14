@@ -1,9 +1,9 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
-import Register from './views/register/Register';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './views/home/Home';
 import Login from './views/login/Login';
+import Register from './views/register/Register';
 import Success from './views/success-page/Success';
 
 function App() {
