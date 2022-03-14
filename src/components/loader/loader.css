@@ -1,6 +1,6 @@
 .cont {
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    margin: 45% 0;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  margin: 45% 0;
 }
