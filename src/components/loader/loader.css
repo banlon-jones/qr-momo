@@ -4,3 +4,12 @@
   justify-content: center;
   margin: 45% 0;
 }
+
+@media screen and (min-device-width: 700px) {
+  .cont {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    margin: 10% 0;
+  }
+}

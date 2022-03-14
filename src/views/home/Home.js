@@ -17,9 +17,9 @@ const Home = () => (
         <h1> Lets get started </h1>
       </div>
       <div className="text-center text-light">
-        <p> Never a better time than now. Fasten your checkout process make your customers. </p>
+        <p> Never a better time than now. Fasten your checkout process for your customers. </p>
       </div>
-      <div className="container mt-4">
+      <div className="container mt-4 text-center">
         <NavLink to="/register">
           <BtnPrimary value=" Create Account " />
         </NavLink>
