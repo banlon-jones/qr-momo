@@ -16,7 +16,7 @@ const Login = () => (
       <div className="text-center">
         <p>
           Have no account yet?
-          <a href="!#"> register </a>
+          <a to="/register"> register </a>
         </p>
       </div>
       <div className="container mt-4">

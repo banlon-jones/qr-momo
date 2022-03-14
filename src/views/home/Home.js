@@ -1,7 +1,8 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import logo from '../../images/logo.png';
-import BtnPrimary from '../../components/buttons/Btn-primary';
 import BtnSecondary from '../../components/buttons/btn-secondary';
+import BtnPrimary from '../../components/buttons/Btn-primary';
 
 const Home = () => (
   <div>
@@ -19,13 +20,13 @@ const Home = () => (
         <p> Never a better time than now. Fasten your checkout process make your customers. </p>
       </div>
       <div className="container mt-4">
-        <div>
-          <BtnPrimary value="Create Account" />
-        </div>
+        <NavLink to="/register">
+          <BtnPrimary value=" Create Account " />
+        </NavLink>
         <br />
-        <div>
+        <NavLink to="/sign-in">
           <BtnSecondary value="Login to Account" />
-        </div>
+        </NavLink>
       </div>
     </div>
   </div>

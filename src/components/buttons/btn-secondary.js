@@ -5,9 +5,7 @@ const BtnSecondary = (Props) => {
   return (
     <div>
       <button className="btn-secondary" type="button">
-        {' '}
         {value}
-        {' '}
       </button>
     </div>
   );
