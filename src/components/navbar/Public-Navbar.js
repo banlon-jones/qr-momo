@@ -5,8 +5,8 @@ import './navbar.css';
 
 const PublicNavbar = () => (
   <nav>
-    <NavLink to="/">
-      <img src={backIcon} alt="back icon" />
+    <NavLink className="text-decoration-none text-black p-2" to="/">
+      <img src={backIcon} alt="back icon" className="px-1" />
       back
     </NavLink>
   </nav>

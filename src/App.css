@@ -1,135 +1,20 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
 body {
-  background-color: #f7f9fc;
-}
-
-.container {
-  margin: 2px 5%;
-}
-
-.title {
-  text-align: center;
-}
-
-.logo-center {
-  text-align: center;
-}
-
-.text-center {
-  text-align: center;
-}
-
-.mt-4 {
-  margin-top: 25%;
-}
-
-.mt-2 {
-  margin-top: 10%;
-}
-
-.text-normal {
-  font-weight: normal;
-}
-
-.text-light {
-  font-weight: lighter;
-}
-
-.form-control {
-  font-size: 16px;
-  background: #fff;
-  border: 1px solid #a0bfe6;
-  box-sizing: border-box;
-  border-radius: 10px;
-  height: 41px;
-  width: 100%;
-  margin-top: 8px;
-  padding: 16px;
-}
-
-.select-control {
-  font-size: 16px;
-  background: #fff;
-  border: 1px solid #a0bfe6;
-  box-sizing: border-box;
-  border-radius: 10px;
-  height: 41px;
-  width: 100%;
-  margin-top: 8px;
-  padding: 8px;
-}
-
-.btn-primary {
-  color: #fff;
-  background-color: #2371ce;
-  padding: 14px 0;
-  border: none;
-  font-size: 18px;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
-  width: 100%;
-}
-
-.btn-secondary {
-  color: #000;
-  border-radius: 10px;
-  padding: 14px 0;
-  border: none;
-  font-size: 18px;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   background-color: #fff;
-  width: 100%;
 }
 
-.hide-m {
-  visibility: hidden;
-  display: none;
+.bg-gray {
+  background-color: #F7F9FC;
 }
 
-@media screen and (min-device-width: 900px) {
-  .mt-4 {
-    margin-top: 8%;
-  }
 
-  .mt-2 {
-    margin-top: 4%;
-  }
-
-  .btn-primary {
-    color: #fff;
-    background-color: #2371ce;
-    padding: 14px 0;
-    border: none;
-    font-size: 18px;
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 10px;
-    width: 40%;
-  }
-
-  .btn-secondary {
-    color: #000;
-    border-radius: 10px;
-    padding: 14px 0;
-    border: none;
-    font-size: 18px;
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-    background-color: #fff;
-    width: 40%;
-  }
-
-  .flex-row {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    gap: 10%;
-    margin-top: 5%;
+@media screen and (max-device-width: 700px) {
+  .full-width {
+    width: 100%;
   }
 
   .hide-m {
-    visibility: visible;
-    display: block;
-  }
-
-  .full-width {
-    width: 100%;
+    visibility: hidden;
+    display: none;
   }
 }

@@ -7,23 +7,35 @@ import SigninForm from '../../components/signin/SigninForm';
 const Login = () => (
   <div>
     <PublicNavbar />
-    <div className="flex-row">
-      <div className="text-center hide-m">
-        <img src={logo} alt="logo" height="200" />
-        <div>
-          <h2> QR MOMO </h2>
+    <div className="container mt-md-5">
+      <div className="row pt-md-5">
+        <div className="col-md-6 hide-m">
+          <div className="text-center">
+            <div>
+              <p>
+                Welcome to
+                <h3> QR momo </h3>
+              </p>
+            </div>
+            <img src={logo} alt="logo" height="200" />
+            <div>
+              <h2> QR MOMO </h2>
+            </div>
+          </div>
         </div>
-      </div>
-      <div>
-        <div className="container mt-2">
-          <h3 className="text-center"> Login </h3>
-          <p className="text-center">
-            Have no account yet ?
-            <NavLink to="/register"> register </NavLink>
-          </p>
-        </div>
-        <div className="container mt-2">
-          <SigninForm />
+        <div className="col-md-6 p-0">
+          <div className="bg-gray p-5">
+            <div className="container mt-2">
+              <h3> Login </h3>
+              <p className="mt-md-4">
+                Have no account yet ?
+                <NavLink to="/register"> register </NavLink>
+              </p>
+            </div>
+            <div className="container mt-5">
+              <SigninForm />
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -4,9 +4,9 @@ import spinner from '../../images/loading.gif';
 import './loader.css';
 
 const Loader = () => (
-  <div>
-    <div className="container cont">
-      <div className="logo-center">
+  <div className="text-center">
+    <div className="container mt-5 pt-5">
+      <div className="logo-center mt-5">
         <img className="logo-center" src={logo} alt="QR momo logo" height="150" />
       </div>
       <div className="title">

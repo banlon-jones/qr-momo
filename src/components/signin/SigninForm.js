@@ -1,5 +1,4 @@
 import React from 'react';
-import BtnPrimary from '../buttons/Btn-primary';
 
 const SigninForm = () => (
   <div>
@@ -9,13 +8,13 @@ const SigninForm = () => (
         <br />
         <input type="text" className="form-control" id="email" required />
       </div>
-      <div className="mt-2">
+      <div className="mt-4">
         <span> Password </span>
         <br />
         <input type="password" className="form-control" id="email" required />
       </div>
       <div className="mt-4">
-        <BtnPrimary value="Register" />
+        <button className="btn w-100 btn-primary" type="button"> Sign in </button>
       </div>
     </form>
   </div>
