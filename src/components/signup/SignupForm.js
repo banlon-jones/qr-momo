@@ -1,10 +1,12 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+// import { useNavigate } from 'react-router-dom';
 import Select from 'react-select';
 import cameroonFlag from '../../images/Cameroon.jpg';
 import nigeriaFlag from '../../images/nigeria-flag.jpg';
 
 const SignupForm = () => {
+  const { register, handleSubmit, formState: { errors } } = useForm();
   const countries = [
     {
       value: 'cameroon',
@@ -17,9 +19,12 @@ const SignupForm = () => {
       img: nigeriaFlag,
     },
   ];
-  const navigate = useNavigate();
-  const handleClick = () => {
+  // const navigate = useNavigate();
+  /* const handleClick = () => {
     navigate('/success');
+  }; */
+  const onSubmit = (data) => {
+    console.log(data);
   };
   return (
     <div>
@@ -33,33 +38,35 @@ const SignupForm = () => {
         <div>
           <span> Name </span>
           <br />
-          <input type="text" className="form-control" id="email" required />
+          {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+          <input type="text" className="form-control" {...register('name', { required: true })} />
+          <div className="text-danger">
+            {errors.name && <span>This field is required</span>}
+          </div>
         </div>
         <div className="mt-2">
           <span> Email </span>
           <br />
-          <input type="email" className="form-control" id="email" required />
-        </div>
-        <div className="mt-2">
-          <span> phone number </span>
-          <br />
-          <input type="number" className="form-control" id="email" required />
+          {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+          <input type="email" className="form-control" {...register('email', { required: true })} />
         </div>
         <div className="mt-2">
           <span> Password </span>
           <br />
-          <input type="password" className="form-control" id="email" required />
+          {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+          <input type="password" className="form-control" {...register('password', { required: true })} />
         </div>
         <div className="mt-2">
           <div className="row">
             <div className="col-4 p-2">
               <span> Country </span>
               <Select
+                /* eslint-disable-next-line react/jsx-props-no-spreading */
+                {...register('countryCode', { required: true })}
                 options={countries}
                 formatOptionLabel={(country) => (
                   <div className="country-option">
-                    {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
-                    <img src={country.img} height="20" width="30" alt="country-image" />
+                    <img src={country.img} height="20" width="30" alt="country" />
                     <span>
                       {country.label}
                     </span>
@@ -69,14 +76,15 @@ const SignupForm = () => {
             </div>
             <div className="col-8">
               <div className="mt-2">
-                <span> Phone number </span>
+                <span> phone number </span>
                 <br />
-                <input type="number" className="form-control" id="email" required />
+                {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+                <input type="number" className="form-control" {...register('number', { required: true })} />
               </div>
             </div>
           </div>
         </div>
-        <button type="button" onClick={handleClick} className="btn btn-primary col-12 mt-2"> Register </button>
+        <input type="submit" onClick={handleSubmit(onSubmit)} className="btn btn-primary col-12 mt-2" value="Register" />
       </form>
     </div>
   );
