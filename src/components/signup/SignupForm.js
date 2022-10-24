@@ -1,24 +1,10 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 // import { useNavigate } from 'react-router-dom';
-import Select from 'react-select';
-import cameroonFlag from '../../images/Cameroon.jpg';
-import nigeriaFlag from '../../images/nigeria-flag.jpg';
 
 const SignupForm = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
-  const countries = [
-    {
-      value: 'cameroon',
-      label: '+237',
-      img: cameroonFlag,
-    },
-    {
-      value: 'nigeria',
-      label: '+234',
-      img: nigeriaFlag,
-    },
-  ];
+
   // const navigate = useNavigate();
   /* const handleClick = () => {
     navigate('/success');
@@ -60,19 +46,16 @@ const SignupForm = () => {
           <div className="row">
             <div className="col-4 p-2">
               <span> Country </span>
-              <Select
+              <br />
+              <select
+                className="form-control"
+                name="country"
                 /* eslint-disable-next-line react/jsx-props-no-spreading */
                 {...register('countryCode', { required: true })}
-                options={countries}
-                formatOptionLabel={(country) => (
-                  <div className="country-option">
-                    <img src={country.img} height="20" width="30" alt="country" />
-                    <span>
-                      {country.label}
-                    </span>
-                  </div>
-                )}
-              />
+              >
+                <option value="+237"> CMR </option>
+                <option value="+234"> NGR </option>
+              </select>
             </div>
             <div className="col-8">
               <div className="mt-2">
