@@ -1,43 +1,73 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+// import { useNavigate } from 'react-router-dom';
 
 const SignupForm = () => {
-  const navigate = useNavigate();
-  const handleClick = () => {
+  const { register, handleSubmit, formState: { errors } } = useForm();
+
+  // const navigate = useNavigate();
+  /* const handleClick = () => {
     navigate('/success');
+  }; */
+  const onSubmit = (data) => {
+    console.log(data);
   };
   return (
     <div>
+      <div>
+        <h3> Registration </h3>
+        <p className="my-md-5">
+          Enter your validate name and MTN mobile money account number
+        </p>
+      </div>
       <form>
         <div>
           <span> Name </span>
           <br />
-          <input type="text" className="form-control" id="email" required />
+          {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+          <input type="text" className="form-control" {...register('name', { required: true })} />
+          <div className="text-danger">
+            {errors.name && <span>This field is required</span>}
+          </div>
         </div>
         <div className="mt-2">
           <span> Email </span>
           <br />
-          <input type="email" className="form-control" id="email" required />
-        </div>
-        <div className="mt-2">
-          <span> phone number </span>
-          <br />
-          <input type="number" className="form-control" id="email" required />
+          {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+          <input type="email" className="form-control" {...register('email', { required: true })} />
         </div>
         <div className="mt-2">
           <span> Password </span>
           <br />
-          <input type="password" className="form-control" id="email" required />
+          {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+          <input type="password" className="form-control" {...register('password', { required: true })} />
         </div>
         <div className="mt-2">
-          <span> Country </span>
-          <br />
-          <select className="select-control">
-            <option value="cameroon">Cameroon</option>
-            <option value="nigeria">Nigeria</option>
-          </select>
+          <div className="row">
+            <div className="col-4 p-2">
+              <span> Country </span>
+              <br />
+              <select
+                className="form-control"
+                name="country"
+                /* eslint-disable-next-line react/jsx-props-no-spreading */
+                {...register('countryCode', { required: true })}
+              >
+                <option value="+237"> CMR </option>
+                <option value="+234"> NGR </option>
+              </select>
+            </div>
+            <div className="col-8">
+              <div className="mt-2">
+                <span> phone number </span>
+                <br />
+                {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+                <input type="number" className="form-control" {...register('number', { required: true })} />
+              </div>
+            </div>
+          </div>
         </div>
-        <button type="button" onClick={handleClick} className="btn-primary mt-2"> Register </button>
+        <input type="submit" onClick={handleSubmit(onSubmit)} className="btn btn-primary col-12 mt-2" value="Register" />
       </form>
     </div>
   );

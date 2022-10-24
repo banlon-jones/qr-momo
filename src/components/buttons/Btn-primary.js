@@ -1,10 +1,11 @@
 import React from 'react';
+import './button.css';
 
 const BtnPrimary = (Props) => {
   const { value } = Props;
   return (
     <div>
-      <button className="btn-primary" type="button">
+      <button className="btn-pri width-normal" type="button">
         {value}
       </button>
     </div>

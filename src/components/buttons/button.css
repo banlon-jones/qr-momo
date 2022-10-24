@@ -1,0 +1,24 @@
+.width-normal {
+  width: 266px;
+}
+
+.btn-pri {
+  color: #fff;
+  background-color: #2371CE;
+  padding: 14px 0;
+  border: none;
+  font-size: 18px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+
+.btn-sec {
+  color: #000;
+  border-radius: 10px;
+  padding: 14px 0;
+  border: none;
+  font-size: 18px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  background-color: #fff;
+}
+
