@@ -3,6 +3,8 @@ import { NavLink, useParams } from 'react-router-dom';
 import './scan.css';
 import UserNavbar from '../../components/navbar/userNavbar';
 import Iframe from '../../components/iframe/iframe';
+import mtn from '../../images/momo-logo.png';
+import orange from '../../images/orangeLogo.png';
 
 const ScanQR = () => {
   const { channel, amount } = useParams();
@@ -45,9 +47,19 @@ const ScanQR = () => {
               </div>
             </div>
           </div>
-          <div className="col-md-6 col-12 hide-m">
+          <div className="col-md-6 col-12 ">
             <div>
-              <Iframe data={generateCode()} />
+              <div className="text-center">
+                <img src={(channel === 'mtn') ? mtn : orange} alt="payment channel logo" />
+                <h1>
+                  {
+                    (channel === 'mtn' || channel === 'orange') ? 'SCAN ME' : 'NO PAYMENT CHANNEL SELECTED DO NOT SCAN'
+                  }
+                </h1>
+              </div>
+              <div className="text-center">
+                <Iframe data={generateCode()} />
+              </div>
             </div>
           </div>
         </div>

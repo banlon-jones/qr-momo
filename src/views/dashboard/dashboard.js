@@ -6,7 +6,7 @@ import orangelogo from '../../images/orangeLogo.png';
 
 const Dashboard = () => {
   const navigate = useNavigate();
-  const [channel, setChannel] = useState('');
+  const [channel, setChannel] = useState('mtn');
   const amountInput = useRef('0');
   const onSubmit = (e) => {
     e.preventDefault();
