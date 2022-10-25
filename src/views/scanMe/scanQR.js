@@ -1,10 +1,23 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import './scan.css';
 import UserNavbar from '../../components/navbar/userNavbar';
+import Iframe from '../../components/iframe/iframe';
+import mtn from '../../images/momo-logo.png';
+import orange from '../../images/orangeLogo.png';
 
 const ScanQR = () => {
-  console.log('jones');
+  const { channel, amount } = useParams();
+  // eslint-disable-next-line consistent-return
+  const generateCode = () => {
+    if (channel === 'mtn') {
+      return `tel:*126*9*670612010*${amount}#`;
+    }
+    if (channel === 'orange') {
+      return 'tel:#150#';
+    }
+    return 'no channel selected';
+  };
   return (
     <div>
       <UserNavbar />
@@ -17,12 +30,14 @@ const ScanQR = () => {
                 to make payment directly to vendor’s
                 account
               </p>
-              <div className="bg-dark-blue p-5 m-0 rounded-top">
+              <div className="bg-dark-blue p-5 m-0 rounded-5">
                 <div className="row">
                   <div className="text-white col-6">
                     <p> Total </p>
                     <p>
-                      <strong> 6000 CFA </strong>
+                      <strong>
+                        { `${amount} CFA` }
+                      </strong>
                     </p>
                   </div>
                   <div className="col-6">
@@ -32,8 +47,20 @@ const ScanQR = () => {
               </div>
             </div>
           </div>
-          <div className="col-md-6 col-12 hide-m">
-            <div> hello </div>
+          <div className="col-md-6 col-12 ">
+            <div>
+              <div className="text-center">
+                <img src={(channel === 'mtn') ? mtn : orange} alt="payment channel logo" />
+                <h1>
+                  {
+                    (channel === 'mtn' || channel === 'orange') ? 'SCAN ME' : 'NO PAYMENT CHANNEL SELECTED DO NOT SCAN'
+                  }
+                </h1>
+              </div>
+              <div className="text-center">
+                <Iframe data={generateCode()} />
+              </div>
+            </div>
           </div>
         </div>
       </div>

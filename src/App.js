@@ -18,7 +18,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/success" element={<Success />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/scan" element={<ScanQR />} />
+          <Route path="/scan/:channel/:amount" element={<ScanQR />} />
         </Routes>
       </Router>
     </div>
