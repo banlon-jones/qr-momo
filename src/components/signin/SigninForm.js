@@ -1,10 +1,21 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { loginUser } from '../../store/firebase/firebaseReducer';
 
 const SigninForm = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const user = useSelector((state) => state.user);
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
+    dispatch(loginUser(data));
+    if (!user.user) {
+      alert(' wrong credentials ');
+    } else {
+      navigate('/dashboard');
+    }
   };
   return (
     <div>
@@ -28,7 +39,7 @@ const SigninForm = () => {
           <input
             type="password"
             className="form-control"
-            id="email"
+            id="password"
             required
             /* eslint-disable-next-line react/jsx-props-no-spreading */
             {...register('password',

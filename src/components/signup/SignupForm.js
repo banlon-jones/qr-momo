@@ -1,16 +1,24 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-// import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { registerUser } from '../../store/firebase/firebaseReducer';
+import Loader from '../loader/Loader';
 
 const SignupForm = () => {
+  const dispatch = useDispatch();
+  const userStore = useSelector((state) => state.user);
   const { register, handleSubmit, formState: { errors } } = useForm();
 
-  // const navigate = useNavigate();
-  /* const handleClick = () => {
-    navigate('/success');
-  }; */
+  const navigate = useNavigate();
+  if (userStore.isLoading) {
+    return <Loader />;
+  }
   const onSubmit = (data) => {
-    console.log(data);
+    dispatch(registerUser(data));
+    if (userStore.user) {
+      navigate('/success');
+    }
   };
   return (
     <div>
@@ -62,7 +70,7 @@ const SignupForm = () => {
                 <span> phone number </span>
                 <br />
                 {/* eslint-disable-next-line react/jsx-props-no-spreading */}
-                <input type="number" className="form-control" {...register('number', { required: true })} />
+                <input type="number" className="form-control" {...register('phone', { required: true })} />
               </div>
             </div>
           </div>
