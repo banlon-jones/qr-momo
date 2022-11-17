@@ -1,22 +1,38 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { logInWithPassword, registerUserPasswordAndEmail } from '../../services/registerUser';
 
-const initialState = {};
+const initialState = { isLoading: false, user: {} };
 
-export const getItems = createAsyncThunk('get all items',
-  async () => null);
+export const registerUser = createAsyncThunk('register user', async (payload) => {
+  const user = await registerUserPasswordAndEmail(payload);
+  if (user) {
+    return user;
+  }
+  return null;
+});
 
-const itemSlice = createSlice({
-  name: 'itemSlice',
+export const loginUser = createAsyncThunk('login user', async (payload) => logInWithPassword(payload));
+
+const userSlice = createSlice({
+  name: 'userSlice',
   initialState,
   reducers: {
-    setItems(state, action) {
-      return { ...state, items: action.payload };
+    isLoading(state) {
+      return { ...state, isLoading: true };
+    },
+    stopLoading(state) {
+      return { ...state, isLoading: false };
     },
   },
   extraReducers: {
-    [getItems.fulfilled]: (state, action) => ({ ...state, items: action.payload.data }),
+    [registerUser.pending]: (state) => ({ ...state, isLoading: true }),
+    // eslint-disable-next-line max-len
+    [registerUser.fulfilled]: (state, action) => ({ ...state, isLoading: false, user: action.payload }),
+    [loginUser.pending]: (state) => ({ ...state, isLoading: true }),
+    // eslint-disable-next-line max-len
+    [loginUser.fulfilled]: (state, action) => ({ ...state, isLoading: false, user: action.payload }),
   },
 });
 
-export const { setItems } = itemSlice;
-export default itemSlice.reducer;
+export const { isLoading, stopLoading } = userSlice.actions;
+export default userSlice.reducer;

@@ -30,6 +30,7 @@ const Dashboard = () => {
               type="radio"
               name="platform"
               value="mtn"
+              checked
             />
             <img className="px-5" src={mtn} alt="mtn momo logo" />
           </div>
@@ -40,6 +41,7 @@ const Dashboard = () => {
               type="radio"
               name="platform"
               value="orange"
+              disabled
             />
             <img className="px-5" src={orangelogo} alt="orange momo logo" />
           </div>

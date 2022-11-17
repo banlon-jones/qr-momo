@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink, useParams } from 'react-router-dom';
 import './scan.css';
+import { useSelector } from 'react-redux';
 import UserNavbar from '../../components/navbar/userNavbar';
 import Iframe from '../../components/iframe/iframe';
 import mtn from '../../images/momo-logo.png';
@@ -8,10 +9,12 @@ import orange from '../../images/orangeLogo.png';
 
 const ScanQR = () => {
   const { channel, amount } = useParams();
+  const phone = useSelector((state) => state.user.user.displayName.split('/'));
+
   // eslint-disable-next-line consistent-return
   const generateCode = () => {
     if (channel === 'mtn') {
-      return `tel:*126*9*670612010*${amount}#`;
+      return `tel:*126*9*${phone[1]}*${amount}#`;
     }
     if (channel === 'orange') {
       return 'tel:#150#';
