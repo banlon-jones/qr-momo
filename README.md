@@ -1,6 +1,10 @@
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- Is a QR code generator that allows registered vendors to generate QR codes based on customer purchases allowing customers to pay via MTN Money by scanning the QR code,
+- Built with React, and 
+Google Firebase
+
 
 ## Available Scripts
 
