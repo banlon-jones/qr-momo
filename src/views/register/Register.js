@@ -18,7 +18,7 @@ const Register = () => (
           </div>
         </div>
         <div className="col-md-6 col-12 m-0 p-0">
-          <div className="container p-5 bg-gray rounded-3">
+          <div className="container p-5 bg-gray rounded-3 full-height-m">
             <SignupForm />
             <div className="text-center mt-2">
               <NavLink className="text-primary" to="/sign-in"> I have an Account, Sign in  </NavLink>

@@ -24,7 +24,7 @@ const Login = () => (
           </div>
         </div>
         <div className="col-md-6 p-0">
-          <div className="bg-gray p-5">
+          <div className="bg-gray p-5 full-height-m">
             <div className="container mt-2">
               <h3> Login </h3>
               <p className="mt-md-4">

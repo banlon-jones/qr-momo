@@ -1,11 +1,17 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { logOutUser } from '../../store/firebase/firebaseReducer';
 import img from '../../images/Cameroon.jpg';
 import bars from '../../images/fa-solid_bars.svg';
 
 const UserNavbar = () => {
-  const username = useSelector((state) => state.user.user.displayName.split('/'));
-  console.log(username[0]);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const onLogout = () => {
+    dispatch(logOutUser());
+    navigate('/sign-in');
+  };
 
   return (
     <div className="mt-5">
@@ -14,12 +20,22 @@ const UserNavbar = () => {
           <div>
             <img src={img} className="rounded-circle" alt="user dp" height="50" width="50" />
             <span>
-              Hello,
-              {` ${username[0]}`}
+              Hello
             </span>
           </div>
-          <div className="pt-2">
-            <img src={bars} alt="menu" />
+          <div className="dropdown">
+            <div
+              className="pt-2 btn dropdown-toggle"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <img src={bars} alt="menu" />
+            </div>
+            <ul className="dropdown-menu">
+              <li>
+                <button className="dropdown-item" type="button" onClick={onLogout}>Logout</button>
+              </li>
+            </ul>
           </div>
         </div>
       </div>

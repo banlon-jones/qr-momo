@@ -1,12 +1,12 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
+
 body {
   background-color: #fff;
 }
 
 .bg-gray {
-  background-color: #F7F9FC;
+  background-color: #f7f9fc;
 }
-
 
 @media screen and (max-device-width: 700px) {
   .full-width {
@@ -16,5 +16,14 @@ body {
   .hide-m {
     visibility: hidden;
     display: none;
+  }
+
+  .full-height-m {
+    height: 100vh;
+  }
+
+  .flex-m {
+    display: flex;
+    flex-direction: column-reverse;
   }
 }

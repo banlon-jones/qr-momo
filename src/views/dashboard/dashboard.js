@@ -22,6 +22,9 @@ const Dashboard = () => {
         <h1> Generate QR code </h1>
       </div>
       <div className="container">
+        <div className="text-center my-5">
+          Select your payment channel
+        </div>
         <div className="d-flex justify-content-between">
           <div>
             <input
@@ -32,7 +35,7 @@ const Dashboard = () => {
               value="mtn"
               checked
             />
-            <img className="px-5" src={mtn} alt="mtn momo logo" />
+            <img className="px-md-5" src={mtn} alt="mtn momo logo" />
           </div>
           <div>
             <input
@@ -43,14 +46,11 @@ const Dashboard = () => {
               value="orange"
               disabled
             />
-            <img className="px-5" src={orangelogo} alt="orange momo logo" />
+            <img className="px-md-5" src={orangelogo} alt="orange momo logo" />
           </div>
         </div>
       </div>
-      <div className="text-center my-5">
-        Select your payment channel
-      </div>
-      <div className="container">
+      <div className="container pt-5">
         <form action="">
           <div>
             <span> Enter amount </span>

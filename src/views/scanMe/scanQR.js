@@ -3,7 +3,7 @@ import { NavLink, useParams } from 'react-router-dom';
 import './scan.css';
 import { useSelector } from 'react-redux';
 import UserNavbar from '../../components/navbar/userNavbar';
-import Iframe from '../../components/iframe/iframe';
+// import Iframe from '../../components/iframe/iframe';
 import mtn from '../../images/momo-logo.png';
 import orange from '../../images/orangeLogo.png';
 
@@ -25,8 +25,8 @@ const ScanQR = () => {
     <div>
       <UserNavbar />
       <div className="container mt-md-5">
-        <div className="row">
-          <div className="col-md-6 col-12 p-md-5 mt-md-5 m-0 p-0">
+        <div className="row flex-m">
+          <div className="col-md-6 col-12 p-md-5 mt-md-5 mt-5 p-0">
             <div className="card-body bg-blue rounded-5">
               <p className=" text-white text-center p-5">
                 customer should scan the QR code above
@@ -61,7 +61,11 @@ const ScanQR = () => {
                 </h1>
               </div>
               <div className="text-center">
-                <Iframe data={generateCode()} />
+                <img
+                  className="img-fluid"
+                  src={`https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=${generateCode()}`}
+                  alt="qr code"
+                />
               </div>
             </div>
           </div>
