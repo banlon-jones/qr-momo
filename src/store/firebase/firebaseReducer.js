@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { logInWithPassword, registerUserPasswordAndEmail } from '../../services/registerUser';
+import { logInWithPassword, logOut, registerUserPasswordAndEmail } from '../../services/registerUser';
 
-const initialState = { isLoading: false, user: {} };
+const initialState = { isLoading: false, user: {}, isLoggedIn: false };
 
 export const registerUser = createAsyncThunk('register user', async (payload) => {
   const user = await registerUserPasswordAndEmail(payload);
@@ -12,6 +12,8 @@ export const registerUser = createAsyncThunk('register user', async (payload) =>
 });
 
 export const loginUser = createAsyncThunk('login user', async (payload) => logInWithPassword(payload));
+
+export const logOutUser = createAsyncThunk('logout user', async () => logOut());
 
 const userSlice = createSlice({
   name: 'userSlice',
@@ -26,11 +28,17 @@ const userSlice = createSlice({
   },
   extraReducers: {
     [registerUser.pending]: (state) => ({ ...state, isLoading: true }),
-    // eslint-disable-next-line max-len
-    [registerUser.fulfilled]: (state, action) => ({ ...state, isLoading: false, user: action.payload }),
+    [registerUser.fulfilled]: (state, action) => (
+      { ...state, isLoading: false, user: action.payload }
+    ),
     [loginUser.pending]: (state) => ({ ...state, isLoading: true }),
-    // eslint-disable-next-line max-len
-    [loginUser.fulfilled]: (state, action) => ({ ...state, isLoading: false, user: action.payload }),
+    [loginUser.fulfilled]: (state, action) => (
+      {
+        ...state, isLoading: false, user: action.payload, isLoggedIn: true,
+      }
+    ),
+    [logOutUser.pending]: (state) => ({ ...state, isLoading: true }),
+    [logOutUser.fulfilled]: (state) => ({ ...state, isLoading: false, isLoggedIn: false }),
   },
 });
 

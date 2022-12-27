@@ -1,5 +1,5 @@
 import {
-  getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile,
+  getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, signOut,
 } from 'firebase/auth';
 
 import { app } from '../configs/firebase.initialize';
@@ -25,7 +25,16 @@ export const logInWithPassword = async (user) => {
       return userCredential.user;
     }
   } catch (e) {
-    console.log(e);
+    return null;
+  }
+};
+
+export const logOut = async () => {
+  try {
+    const logOut = await signOut(auth);
+    return logOut;
+  } catch (e) {
+    alert(e);
     return null;
   }
 };
