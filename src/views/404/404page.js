@@ -5,7 +5,7 @@ function NotFound() {
   return (
     <div className="text-center mt-5 pt-5">
       <div>
-        <img src={image} alt="page not found" />
+        <img className="img-fluid" src={image} alt="page not found" />
         <h3> Page Not Found </h3>
         <p> This page you are looking for does not exist </p>
         <div>
